@@ -5,10 +5,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * @author Robert Nichols
- * @category Services
- */
 @Service
 public interface UserService {
 

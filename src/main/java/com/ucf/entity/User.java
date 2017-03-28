@@ -10,9 +10,6 @@ import javax.persistence.*;
 import java.util.Collection;
 import java.util.List;
 
-/**
- * Created by Robert Nichols on 3/5/17.
- */
 @Entity
 @Table(name = "users")
 public class User implements UserDetails {
@@ -35,14 +32,14 @@ public class User implements UserDetails {
     @NotEmpty
     private String phone;
 
-    @Column(name = "user_password", nullable = true, length = 60)
+    @Column(name = "user_password", nullable = false, length = 60)
     private String password;
 
     @Lob
     @Column(name = "user_avatarurl")
     private String avatarURL;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "users", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonIgnore
     @JsonManagedReference
     private List<Conversation> conversations;
@@ -55,6 +52,10 @@ public class User implements UserDetails {
         this.phone = phone;
         this.password = password;
         this.avatarURL = avatarURL;
+    }
+
+    public User() {
+        super();
     }
 
     public Integer getKey() {
