@@ -1,6 +1,6 @@
 package com.ucf.service;
 
-import com.twilio.type.PhoneNumber;
+import com.twilio.rest.lookups.v1.PhoneNumber;
 import org.springframework.stereotype.Service;
 
 @Service

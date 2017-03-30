@@ -1,7 +1,7 @@
 package com.ucf.serviceBean;
 
 import com.twilio.Twilio;
-import com.twilio.type.PhoneNumber;
+import com.twilio.rest.lookups.v1.PhoneNumber;
 import com.ucf.service.TwillioService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,13 +19,16 @@ public class TwillioBean implements TwillioService {
     private String twillioSecret;
 
     @Override
-    public PhoneNumber getPhoneNumber(String phoneInput) {
+    public PhoneNumber getPhoneNumber(String phoneInput) throws com.twilio.exception.ApiException {
         Twilio.init(twillioSid, twillioSecret);
 
-        com.twilio.rest.lookups.v1.PhoneNumber number = com.twilio.rest.lookups.v1.PhoneNumber
-                .fetcher(new com.twilio.type.PhoneNumber(phoneInput))
-                .fetch();
-
-        return number.getPhoneNumber();
+        try {
+            PhoneNumber number = PhoneNumber
+                    .fetcher(new com.twilio.type.PhoneNumber(phoneInput))
+                    .fetch();
+            return number;
+        } catch (com.twilio.exception.ApiException e) {
+            throw e;
+        }
     }
 }

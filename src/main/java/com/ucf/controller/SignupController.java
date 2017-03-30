@@ -37,13 +37,19 @@ public class SignupController {
             @RequestParam(name = "phone") String phoneInput,
             @RequestParam(name = "password") String password
     ) {
-        String formattedPhone = twillioService.getPhoneNumber(phoneInput).toString();
+        String formattedPhone;
+        try {
+            formattedPhone = twillioService.getPhoneNumber(phoneInput).getPhoneNumber().toString();
+        } catch(com.twilio.exception.ApiException e) {
+            return response.respond(HttpStatus.BAD_REQUEST, "The phone number provided is not valid");
+        }
+
         User user = userRepository.getUserByPhone(formattedPhone);
         if (user == null) {
             signup.signup(formattedPhone, password);
             return response.respond(HttpStatus.ACCEPTED);
         } else {
-            return response.respond(HttpStatus.CONFLICT);
+            return response.respond(HttpStatus.CONFLICT, "A user account already exists for the number provided");
         }
     }
 }
