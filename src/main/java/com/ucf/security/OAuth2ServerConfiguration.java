@@ -18,10 +18,6 @@ import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
 
-/**
- * @author Robert Nichols
- * @category Security
- */
 public class OAuth2ServerConfiguration {
     private static final String RESOURCE_ID = "restservice";
 
@@ -44,14 +40,7 @@ public class OAuth2ServerConfiguration {
             http
                     .authorizeRequests()
                     .antMatchers("/websocket/**").permitAll()
-                    .antMatchers("/user/**").authenticated()
-                    .antMatchers("/course/**").authenticated()
-                    .antMatchers("/review/**").authenticated()
-                    .antMatchers("/admin/**").authenticated()
-                    .antMatchers("/dashboard/**").authenticated()
-                    .antMatchers("/community/**").authenticated()
-                    .antMatchers("/profile/**").authenticated()
-                    .antMatchers("/toolkits/**").authenticated();
+                    .antMatchers("/profile/**").authenticated();
             http.headers().frameOptions().disable();
             // @formatter:on
         }

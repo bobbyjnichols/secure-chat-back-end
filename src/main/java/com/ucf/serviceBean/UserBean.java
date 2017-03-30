@@ -26,6 +26,11 @@ public class UserBean implements UserService {
     }
 
     @Override
+    public User getUserByPhone(String phone) {
+        return userRepository.getUserByPhone(phone);
+    }
+
+    @Override
     public List<User> getAll() {
         try {
             return userRepository.findAll();
@@ -43,9 +48,9 @@ public class UserBean implements UserService {
         if (authentication instanceof AnonymousAuthenticationToken)
             throw new UnauthorizedUserException("User has not been authenticated.");
 
-        return userRepository.getUserByUsername(
+        return userRepository.getUserByPhone(
                 ((User) authentication.getPrincipal())
-                        .getUsername()
+                        .getPhone()
         );
     }
 }

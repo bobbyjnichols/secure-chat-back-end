@@ -13,4 +13,6 @@ public interface UserService {
     List<User> getAll();
 
     User getCurrentUser();
+
+    User getUserByPhone(String phone);
 }

@@ -12,11 +12,8 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Objects;
 
-/**
- * @author Robert Nichols
- * @category Security
- */
 @Component
 public class UserDetailsService implements org.springframework.security.core.userdetails.UserDetailsService {
 
@@ -28,7 +25,7 @@ public class UserDetailsService implements org.springframework.security.core.use
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        User user = userService.getUserByUsername(username);
+        User user = userService.getUserByPhone(username);
 
         this.validateCredentials(user);
 

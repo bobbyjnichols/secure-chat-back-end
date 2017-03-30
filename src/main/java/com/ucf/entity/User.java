@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.*;
 import java.util.Collection;
@@ -104,7 +106,8 @@ public class User implements UserDetails {
     }
 
     public User setPassword(String password) {
-        this.password = password;
+        PasswordEncoder encoder = new BCryptPasswordEncoder();
+        this.password = encoder.encode(password);
         return this;
     }
 
@@ -139,31 +142,31 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return null;
+        return phone;
     }
 
     @JsonIgnore
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @JsonIgnore
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @JsonIgnore
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @JsonIgnore
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 }
 
