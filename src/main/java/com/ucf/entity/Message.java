@@ -1,6 +1,8 @@
 package com.ucf.entity;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
+import java.util.Date;
 
 @Entity
 @Table(name = "messages")
@@ -10,7 +12,8 @@ public class Message {
     @Column(name = "message_key")
     private Integer key;
 
-    @Column
+    @ManyToOne
+    @JoinColumn(name = "user_key")
     private User user;
 
     @ManyToOne
@@ -20,8 +23,22 @@ public class Message {
     @Column(name = "message_text")
     private String text;
 
+    @Column(name = "timestamp")
+    private Timestamp timestamp;
+
+    @PrePersist
+    protected void onCreate() {
+        timestamp = new Timestamp(new Date().getTime());
+    }
+
     public Message() {
         super();
+    }
+
+    public Message(User user, Conversation conversation, String text) {
+        this.user = user;
+        this.conversation = conversation;
+        this.text = text;
     }
 
     public Integer getKey() {
@@ -59,4 +76,9 @@ public class Message {
         this.text = text;
         return this;
     }
+
+    public Timestamp getTimestamp() {
+        return timestamp;
+    }
+
 }
