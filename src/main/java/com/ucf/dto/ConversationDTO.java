@@ -8,12 +8,12 @@ import java.util.List;
 public class ConversationDTO {
     private Integer key;
     private final List<UserDTO> participants;
-//    private final List<MessageDTO> messages;
+    private String name;
 
     public ConversationDTO(Conversation conversation) {
         this.key = conversation.getKey();
         this.participants = ListUtils.parallelTransform(conversation.getUsers(), UserDTO::new);
-//        this.messages = ListUtils.parallelTransform(conversation.getMessages(), MessageDTO::new);
+        this.name = conversation.getName();
     }
 
     public Integer getKey() {
@@ -24,7 +24,7 @@ public class ConversationDTO {
         return participants;
     }
 
-//    public List<MessageDTO> getMessages() {
-//        return messages;
-//    }
+    public String getName() {
+        return name;
+    }
 }

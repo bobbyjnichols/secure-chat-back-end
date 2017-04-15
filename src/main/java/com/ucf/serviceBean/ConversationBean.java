@@ -16,9 +16,10 @@ public class ConversationBean implements ConversationService {
     private ConversationRepository conversationRepository;
 
     @Override
-    public Conversation newConversation(List<User> participants) {
+    public Conversation newConversation(String name, List<User> participants) {
         Conversation conversation = new Conversation();
         conversation.setUsers(participants);
+        conversation.setName(name);
         return conversationRepository.save(conversation);
     }
 

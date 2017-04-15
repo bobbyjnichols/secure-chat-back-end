@@ -18,6 +18,9 @@ public class Conversation {
     @OneToMany(mappedBy = "conversation")
     private List<Message> messages;
 
+    @Column(name = "conversation_name")
+    private String name;
+
     public Conversation() {
         super();
     }
@@ -46,6 +49,15 @@ public class Conversation {
 
     public Conversation setMessages(List<Message> messages) {
         this.messages = messages;
+        return this;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Conversation setName(String name) {
+        this.name = name;
         return this;
     }
 }

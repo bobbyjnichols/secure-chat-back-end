@@ -1,5 +1,6 @@
 package com.ucf.controller;
 
+import com.ucf.dto.UserDTO;
 import com.ucf.entity.User;
 import com.ucf.service.ProfileService;
 import com.ucf.service.UserService;
@@ -39,5 +40,11 @@ public class ProfileController {
 
         profileService.updateProfile(user);
         return response.respond(HttpStatus.ACCEPTED);
+    }
+
+    @RequestMapping(produces = "application/json", method = RequestMethod.GET)
+    @ResponseBody
+    public ResponseEntity<?> getProfile() {
+        return response.respond(new UserDTO(userService.getCurrentUser()));
     }
 }

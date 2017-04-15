@@ -13,7 +13,7 @@ import java.util.List;
 
 @Repository
 public interface MessageRepository extends JpaRepository<Message, Integer>, JpaSpecificationExecutor {
-    @Query(value = "SELECT m FROM Message m WHERE m.conversation = ?1 ORDER BY m.timestamp")
+    @Query(value = "SELECT m.key FROM Message m WHERE m.conversation = ?1 ORDER BY m.timestamp")
     List<Integer> getMessages(Conversation conversation);
 
     Page<Message> findByKeyIn(List<Integer> keys, Pageable pageable);

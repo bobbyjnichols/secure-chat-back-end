@@ -1,6 +1,7 @@
 package com.ucf.security;
 
 import com.ucf.entity.User;
+import com.ucf.service.TwillioService;
 import com.ucf.service.UserService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,10 +23,13 @@ public class UserDetailsService implements org.springframework.security.core.use
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private TwillioService twillioService;
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        User user = userService.getUserByPhone(username);
+        User user = userService.getUserByPhone(twillioService.getPhoneNumber(username).getPhoneNumber().toString());
 
         this.validateCredentials(user);
 
@@ -49,9 +53,9 @@ public class UserDetailsService implements org.springframework.security.core.use
             else if (user.getPassword() == null)
                 logger.error("User '" + username + "' has not created a password");
             else if(BCrypt.checkpw(password, user.getPassword()))
-                logger.info(username + "' Login Success");
+                logger.info(username + " - Login Success");
             else
-                logger.info(username + "' Login Fail");
+                logger.info(username + " - Login Fail");
         } catch (Exception e) {
             e.printStackTrace();
         }
