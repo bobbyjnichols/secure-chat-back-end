@@ -11,11 +11,6 @@ import org.springframework.stereotype.Component;
 
 import com.google.common.base.CaseFormat;
 
-/**
- * @author Robert Nichols
- * @category Utilities
- */
-
 @Component
 public class Response {
 

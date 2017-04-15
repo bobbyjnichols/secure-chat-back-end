@@ -1,10 +1,5 @@
 package com.ucf.dto;
 
-/**
- * @author Robert Nichols
- * @category Data Transfer Objects
- */
-
 public class SocketMessageDTO {
 
     private final String name;

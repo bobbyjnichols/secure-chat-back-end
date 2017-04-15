@@ -9,11 +9,6 @@ import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 
 import javax.annotation.PostConstruct;
 
-/**
- * @author Robert Nichols
- * @category Configurations
- */
-
 @Configuration
 @EnableWebSocketMessageBroker
 public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
@@ -22,7 +17,7 @@ public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
     public void configureMessageBroker(MessageBrokerRegistry config) {
         config.enableSimpleBroker("/notify");
         // TODO: Rename endpoint
-        config.setApplicationDestinationPrefixes("/eco_app");
+        config.setApplicationDestinationPrefixes("/securechat");
     }
 
     @Override

@@ -5,10 +5,6 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-/**
- * @author Robert Nichols
- */
-
 public class SetUtils {
 
     public static <T, E> Set<E> transform(Set<T> from, Function<T, E> func) {

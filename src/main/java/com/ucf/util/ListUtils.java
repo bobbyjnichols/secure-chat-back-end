@@ -7,11 +7,6 @@ import java.util.function.Predicate;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
-/**
- * @author Robert Nichols
- * @category Utilities
- */
-
 public class ListUtils {
 
   public static <T, E> List<E> transform(List<T> from, Function<T, E> func) {

@@ -27,9 +27,9 @@ public class SocketUtil {
         simpMessagingTemplate.convertAndSend("/notify/event", message);
     }
 
-//    public void socketPushMessageToUser(SocketMessageDTO message, User user) {
-//        simpMessagingTemplate.convertAndSendToUser(user, "messaging/notify", message);
-//    }
+    public void socketPushMessageToUser(SocketMessageDTO message, User user) {
+        simpMessagingTemplate.convertAndSendToUser(user, "messaging/notify", message);
+    }
 
     ;
 }
