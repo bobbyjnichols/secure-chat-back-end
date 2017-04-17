@@ -9,6 +9,15 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+/*
+* Components contain logic that is essential to the operations carried out by the server.
+* The logic in these components is separate from their associated controllers so that they
+* can be used elsewhere in the project.
+*
+* The conversation component facilitates in the creation of a new conversation and assigning
+* values to that conversation.
+* */
+
 @Component
 public class ConversationBean implements ConversationService {
 

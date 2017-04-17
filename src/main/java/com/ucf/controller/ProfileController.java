@@ -11,6 +11,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+/*
+* Controllers define endpoints that are available to accept RESTful requests and
+* route them to the appropriate services.
+*
+* The profile controller provides endpoints to return and modify a user's profile.
+* This endpoint requires authentication.
+* */
+
 @RestController
 @RequestMapping(value = "/profile")
 public class ProfileController {

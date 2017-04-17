@@ -2,6 +2,15 @@ package com.ucf.dto;
 
 import com.ucf.entity.User;
 
+/*
+* Data Transfer Objects (or DTOs) define what from an object should be returned as JSON as a
+* response to a request. These classes define the what information is accessible to users and
+* acts as a layer of security as well as a way to increase response performance.
+*
+* The user DTO defines the properties available when querying for a user object.
+* A notable exception is the user's password.
+* */
+
 public class UserDTO {
 
     private Integer key;

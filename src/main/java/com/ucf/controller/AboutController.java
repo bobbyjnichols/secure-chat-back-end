@@ -10,6 +10,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+/*
+* Controllers define endpoints that are available to accept RESTful requests and
+* route them to the appropriate services.
+*
+* The about controller provides an endpoint to return basic version information
+* about the application.
+* This endpoint does not require authentication.
+* */
+
 @RestController
 @RequestMapping(value = "/about")
 public class AboutController {

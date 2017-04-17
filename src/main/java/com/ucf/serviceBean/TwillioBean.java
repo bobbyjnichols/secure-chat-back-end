@@ -7,6 +7,15 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+/*
+* Components contain logic that is essential to the operations carried out by the server.
+* The logic in these components is separate from their associated controllers so that they
+* can be used elsewhere in the project.
+*
+* The Twillio component provides services from Twillio; mainly to standardize user imput
+* of phone numbers.
+* */
+
 @Component
 public class TwillioBean implements TwillioService {
 

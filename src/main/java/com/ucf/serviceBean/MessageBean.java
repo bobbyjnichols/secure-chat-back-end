@@ -11,6 +11,15 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+/*
+* Components contain logic that is essential to the operations carried out by the server.
+* The logic in these components is separate from their associated controllers so that they
+* can be used elsewhere in the project.
+*
+* The message component facilitates in the creation of a new message. It also provides a means
+* of paginating the requests for messages.
+* */
+
 @Component
 public class MessageBean implements MessageService {
 

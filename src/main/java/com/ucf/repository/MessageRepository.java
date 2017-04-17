@@ -11,6 +11,13 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/*
+* Repositories provide a means for services to communicate with the database.
+*
+* The message repository can provide a full list of message objects in a conversation
+* and provide a paginated list of messages for improved perfomance in long conversations
+* */
+
 @Repository
 public interface MessageRepository extends JpaRepository<Message, Integer>, JpaSpecificationExecutor {
     @Query(value = "SELECT m.key FROM Message m WHERE m.conversation = ?1 ORDER BY m.timestamp")

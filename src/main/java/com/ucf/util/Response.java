@@ -11,6 +11,11 @@ import org.springframework.stereotype.Component;
 
 import com.google.common.base.CaseFormat;
 
+/*
+* The response utility allows for greater control over return values including being
+* able to define specific status codes to return to clients.
+* */
+
 @Component
 public class Response {
 

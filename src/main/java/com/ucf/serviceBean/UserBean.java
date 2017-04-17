@@ -13,6 +13,17 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+/*
+* Components contain logic that is essential to the operations carried out by the server.
+* The logic in these components is separate from their associated controllers so that they
+* can be used elsewhere in the project.
+*
+* The user component provides a means to retrieve a user object via various identification
+* methods. Note that the user service is able to return the applicable user in a specific
+* application context. Essentially the user can be identified with nothing other than the
+* access token they used to request content.
+* */
+
 @Component
 public class UserBean implements UserService {
     private static final Logger logger = Logger.getLogger(UserBean.class);

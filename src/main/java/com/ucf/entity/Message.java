@@ -4,6 +4,14 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Date;
 
+/*
+* Entity classes are used to define objects stored in the database and their relations.
+* This is used when hibernate updates the database schema or needs to determine SQL queries.
+*
+* The message entity defines an object that has been 'sent' by one user to another user in
+* the context of a conversation.
+* */
+
 @Entity
 @Table(name = "messages")
 public class Message {

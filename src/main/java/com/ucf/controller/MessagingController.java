@@ -22,6 +22,15 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Arrays;
 import java.util.List;
 
+/*
+* Controllers define endpoints that are available to accept RESTful requests and
+* route them to the appropriate services.
+*
+* The messaging controller provides all the endpoints associated with sending and
+* receiving messages.
+* This endpoint requires authentication.
+* */
+
 @RestController
 @RequestMapping(value = "/messaging")
 public class MessagingController {

@@ -8,6 +8,13 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/*
+* Repositories provide a means for services to communicate with the database.
+*
+* The conversation repository uses no database queries beyond the ones provided in
+* the JpaRepository package.
+* */
+
 @Repository
 public interface ConversationRepository extends JpaRepository<Conversation, Integer> {
 }

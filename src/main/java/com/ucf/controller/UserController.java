@@ -11,6 +11,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+/*
+* Controllers define endpoints that are available to accept RESTful requests and
+* route them to the appropriate services.
+*
+* The user controller provides an endpoint to return a list of all users registered.
+* This endpoint requires authentication.
+* */
+
 @RestController
 @RequestMapping(value = "/user")
 public class UserController {

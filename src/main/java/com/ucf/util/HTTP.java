@@ -15,6 +15,12 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
+/*
+* The HTTP utilities file provides a way to intercept specific HTML requests for unique
+* requests. At the time of writing this class is not used at all in the project but remains
+* to facilitate future development.
+* */
+
 public class HTTP extends OkHttpClient {
 
   public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");

@@ -15,6 +15,11 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Objects;
 
+/*
+* The UserDetailsService class defines how to identify and authenticate users. Note that users'
+* credentials are hashed using bcrypt, an extension of the blowfish cypher.
+* */
+
 @Component
 public class UserDetailsService implements org.springframework.security.core.userdetails.UserDetailsService {
 

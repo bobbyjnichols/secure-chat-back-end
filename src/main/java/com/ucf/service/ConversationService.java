@@ -6,6 +6,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/*
+* Service classes provide interfaces for implementation beans.
+* */
+
 @Service
 public interface ConversationService {
     Conversation newConversation(String name, List<User> participants);

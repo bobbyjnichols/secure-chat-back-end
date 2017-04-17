@@ -12,6 +12,14 @@ import javax.persistence.*;
 import java.util.Collection;
 import java.util.List;
 
+/*
+* Entity classes are used to define objects stored in the database and their relations.
+* This is used when hibernate updates the database schema or needs to determine SQL queries.
+*
+* The user entity defines values specific to a single user and is used when relating objects
+* to that user.
+* */
+
 @Entity
 @Table(name = "users")
 public class User implements UserDetails {

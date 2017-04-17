@@ -18,6 +18,11 @@ import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
 
+/*
+* The OAuth2ServerConfiguration class defines what endpoints are secure and what authorizations
+* are permitted when authenticating users
+* */
+
 public class OAuth2ServerConfiguration {
     private static final String RESOURCE_ID = "restservice";
 
@@ -40,7 +45,9 @@ public class OAuth2ServerConfiguration {
             http
                     .authorizeRequests()
                     .antMatchers("/websocket/**").permitAll()
-                    .antMatchers("/profile/**").authenticated();
+                    .antMatchers("/profile/**").authenticated()
+                    .antMatchers("/user/**").authenticated()
+                    .antMatchers("/messaging/**").authenticated();
             http.headers().frameOptions().disable();
             // @formatter:on
         }

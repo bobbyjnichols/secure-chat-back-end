@@ -3,6 +3,13 @@ package com.ucf.entity;
 import javax.persistence.*;
 import java.util.List;
 
+/*
+* Entity classes are used to define objects stored in the database and their relations.
+* This is used when hibernate updates the database schema or needs to determine SQL queries.
+*
+* The conversation entity defines an object that relates many users to a single set of messages
+* */
+
 @Entity
 @Table(name = "conversations")
 public class Conversation {

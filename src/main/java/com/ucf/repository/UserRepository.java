@@ -5,6 +5,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+/*
+* Repositories provide a means for services to communicate with the database.
+*
+* The User repository provides a means to lookup a user object by various parameters.
+* */
+
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
 

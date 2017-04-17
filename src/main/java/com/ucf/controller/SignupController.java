@@ -14,6 +14,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+/*
+* Controllers define endpoints that are available to accept RESTful requests and
+* route them to the appropriate services.
+*
+* The signup controller provides an endpoint to register a new user.
+* This endpoint does not require authentication.
+* */
+
 @RestController
 @RequestMapping(value = "/signup")
 public class SignupController {

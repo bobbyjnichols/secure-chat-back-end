@@ -1,5 +1,14 @@
 package com.ucf.dto;
 
+/*
+* Data Transfer Objects (or DTOs) define what from an object should be returned as JSON as a
+* response to a request. These classes define the what information is accessible to users and
+* acts as a layer of security as well as a way to increase response performance.
+*
+* The Socket Message DTO defines the properties available when a socket message is sent from
+* the server.
+* */
+
 public class SocketMessageDTO {
 
     private final String name;
